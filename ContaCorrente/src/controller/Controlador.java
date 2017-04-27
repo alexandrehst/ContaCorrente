@@ -9,6 +9,7 @@ import contacorrente.Conta;
 import agencia.Agencia;
 import agencia.Banco;
 import cliente.Cliente;
+import contacorrente.ContaCorrente;
 
 /**
  *
@@ -18,14 +19,19 @@ public class Controlador {
     public static void main(String[] args) {
         
         Cliente cliente = new Cliente("Joaquim José de Alcântara Xavier");
-        Conta conta = new Conta(
-                        new Agencia(
-                                new Banco( 1, "Banco do Brasil"),
-                                3030),
-                        cliente);
+        Banco banco = new Banco( 1, "Banco do Brasil");
+        Agencia agencia = new Agencia( banco, 3030);
+        ContaCorrente conta = new ContaCorrente( agencia, cliente);
+
+        conta.setLimite(100);
         conta.depositar(1000);
-        conta.sacar(300);
+        conta.sacar(2000);
         
+        // o saldo deverá ser 1000
+        System.out.println("O saldo da conta é R$ " + conta.getSaldo());
+        
+        conta.sacar(1050);
+        // o saldo deverá ser -50
         System.out.println("O saldo da conta é R$ " + conta.getSaldo());
     }
 }
