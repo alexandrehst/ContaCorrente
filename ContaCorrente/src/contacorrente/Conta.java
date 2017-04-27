@@ -23,6 +23,7 @@ public abstract class Conta {
     
     public Conta(Agencia agencia, Cliente cliente){
         this.agencia = agencia;
+        this.agencia.getContas().add(this);
         this.cliente = cliente;
         saldo = 0;
         historico = new ArrayList<>();
