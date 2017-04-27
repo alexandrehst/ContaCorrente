@@ -7,6 +7,7 @@ package contacorrente;
 
 import agencia.Agencia;
 import cliente.Cliente;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,19 +17,33 @@ public class Conta {
     private double saldo;
     private Cliente cliente;
     private Agencia agencia;
+    private ArrayList<Movimentacao> historico;
     
     public Conta(Agencia agencia, Cliente cliente){
         this.agencia = agencia;
         this.cliente = cliente;
         saldo = 0;
+        historico = new ArrayList<>();
+    }
+    
+    public String extrato(){
+        String txt = "Extrato\n--------------------\n";
+        for(Movimentacao m : historico){
+            txt += m;
+            txt += "\n";
+        }
+        
+        return txt;
     }
     
     public void depositar(double valor){
         saldo += valor;   
+        historico.add( new Movimentacao( "Depósito", valor));
     }
     
     public void sacar(double valor){
         saldo -= valor;
+        historico.add( new Movimentacao( "Saque", valor *-1));
     }
     
     public double getSaldo(){
