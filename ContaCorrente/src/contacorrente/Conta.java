@@ -17,5 +17,35 @@ public class Conta {
     private Cliente cliente;
     private Agencia agencia;
     
+    public Conta(Agencia agencia, Cliente cliente){
+        this.agencia = agencia;
+        this.cliente = cliente;
+        saldo = 0;
+    }
+    
+    public void depositar(double valor){
+        saldo += valor;   
+    }
+    
+    public void sacar(double valor){
+        saldo -= valor;
+    }
+    
+    public double getSaldo(){
+        return saldo;
+    }
 
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @return the agencia
+     */
+    public Agencia getAgencia() {
+        return agencia;
+    }
 }
