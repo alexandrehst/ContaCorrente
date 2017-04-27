@@ -34,6 +34,8 @@ public class Controlador {
         // o saldo deverá ser -50
         System.out.println("O saldo da conta é R$ " + conta.getSaldo());
         
+        conta.atualizacaoMensal();
+        
         System.out.println(conta.extrato());
     }
 }

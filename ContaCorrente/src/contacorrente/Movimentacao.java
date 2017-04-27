@@ -20,6 +20,6 @@ public class Movimentacao {
     
     @Override
     public String toString(){
-        return historico + "\t"+ valor;
+        return historico + "\tR$ "+ valor;
     }
 }

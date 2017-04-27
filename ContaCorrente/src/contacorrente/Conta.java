@@ -13,11 +13,13 @@ import java.util.ArrayList;
  *
  * @author alexandretorres
  */
-public class Conta {
-    private double saldo;
+public abstract class Conta {
+    protected double saldo;
     private Cliente cliente;
     private Agencia agencia;
     private ArrayList<Movimentacao> historico;
+    
+    public abstract void atualizacaoMensal();
     
     public Conta(Agencia agencia, Cliente cliente){
         this.agencia = agencia;
@@ -33,6 +35,7 @@ public class Conta {
             txt += "\n";
         }
         
+        txt +="\nSaldo: R$ " + getSaldo();
         return txt;
     }
     
