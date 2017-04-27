@@ -1,12 +1,12 @@
-#LAB 2 – Herança, sobrescrita, métodos e classes abstratas
+# LAB 2 – Herança, sobrescrita, métodos e classes abstratas
 
-##Início
+## Início
 Esse lab está no Github (https://github.com/alexandrehst/ContaCorrente.git).
 Cada commit contém a solução de um exercício. Tente fazer e consulte apenas para corrigir.
 
 Vamos fazer um sistema simples de controle de conta corrente.
 
-##Exercício 1
+## Exercício 1
 Crie as seguintes classes:
 Banco:
 	- Atributos nome e número
@@ -34,8 +34,8 @@ public class Controlador {
         System.out.println("O saldo da conta é R$ " + conta.getSaldo());
     }
 }
-``
-`##Exercício 2
+```
+## Exercício 2
 Vamos aumentar o modelo permitindo que ele tenha mais um tipo de conta:
 
 Conta Corrente: são **Conta**, tem um atributo **limite** e aceitam saques até que o limite negativo seja atingido.
@@ -65,9 +65,9 @@ Garanta que o seguinte controlador funcione:
         // o saldo deverá ser -50
         System.out.println("O saldo da conta é R$ " + conta.getSaldo());
     }
-``##`
+```
 
-Exercício 3
+## Exercício 3
 Agora, vamos aumentar nosso sistema. Primeiro, vamos criar a seguinte classe:
 ```java
 public class Movimentacao {
@@ -84,14 +84,16 @@ public class Movimentacao {
 Na classe **Conta**, crie um **Arraylist** de **Movimentacao** chamado historico.
 
 Inclua a seguinte linha no método depositar:
+
 **historico.add( new Movimentacao( "Depósito", valor));**
 
 e no método sacar:
+
 **historico.add( new Movimentacao( "Saque", valor*-1));**
 
 Ainda na classe **Conta**, crie um método **extrato** que navegue no Arraylist e mostre toda a movimentação da conta;
-
-##Exercício 4
+ 
+## Exercício 4
 Vamos criar agora uma classe **ContaPoupanca** que é **Conta**. Essa classe não deverá permitir saques abaixo do saldo.
 
 Pesquise o que é uma classe abstrata e entenda o conceito.
@@ -108,7 +110,7 @@ Talvez você queira mudar a visibilidade do atributo saldo para **protected**. P
 
 Nós queremos que qualquer classe que venha a ser criada, e que seja filha de **Conta**, tenha o método **atualizacaoMensal**. Como fazemos isso?
 
-##Exercício 5
+## Exercício 5
 Por fim, vamos fazer com que a agência tenha um Arraylist de contas. 
 
 No construtor da classe **Conta**, inclua a seguinte linha:
